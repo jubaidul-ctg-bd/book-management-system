@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
 import * as mongoosePaginate from 'mongoose-paginate-v2';
 import * as uniqueValidator from 'mongoose-unique-validator';
-import { Author } from 'src/authors/schemas/author.schema';
+import { Author } from '../../authors/schemas/author.schema';
 
 export type BookDocument = Book & Document;
 

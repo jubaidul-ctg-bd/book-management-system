@@ -9,7 +9,8 @@ import { Book, BookDocument } from './schemas/book.schema';
 @Injectable()
 export class BooksService {
   constructor(
-    @InjectModel(Book.name) private bookModel: PaginateModel<BookDocument>,
+    @InjectModel(Book.name)
+    private bookModel: PaginateModel<BookDocument>,
     private authorsService: AuthorsService,
   ) {}
 

@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { PaginateModel, PaginateResult } from 'mongoose';
-import { Book, BookDocument } from 'src/books/schemas/book.schema';
+import { Book, BookDocument } from '../books/schemas/book.schema';
 import { CreateAuthorDto } from './dto/create-author.dto';
 import { UpdateAuthorDto } from './dto/update-author.dto';
 import { Author, AuthorDocument } from './schemas/author.schema';
@@ -15,7 +15,8 @@ export class AuthorsService {
   constructor(
     @InjectModel(Author.name)
     private authorModel: PaginateModel<AuthorDocument>,
-    @InjectModel(Book.name) private bookModel: PaginateModel<BookDocument>,
+    @InjectModel(Book.name)
+    private bookModel: PaginateModel<BookDocument>,
   ) {}
 
   async create(createAuthorDto: CreateAuthorDto): Promise<Author> {
