@@ -9,7 +9,6 @@ import {
   Patch,
   Post,
   Query,
-  ValidationPipe,
 } from '@nestjs/common';
 import { AuthorsService } from './authors.service';
 import { CreateAuthorDto } from './dto/create-author.dto';
@@ -20,7 +19,7 @@ export class AuthorsController {
   constructor(private readonly authorsService: AuthorsService) {}
 
   @Post()
-  async create(@Body(new ValidationPipe()) createAuthorDto: CreateAuthorDto) {
+  async create(@Body() createAuthorDto: CreateAuthorDto) {
     return {
       message: 'Author created successfully',
       result: await this.authorsService.create(createAuthorDto),
@@ -52,7 +51,7 @@ export class AuthorsController {
   @Patch(':id')
   async update(
     @Param('id') id: string,
-    @Body(new ValidationPipe()) updateAuthorDto: UpdateAuthorDto,
+    @Body() updateAuthorDto: UpdateAuthorDto,
   ) {
     return {
       message: 'Author updated successfully',
