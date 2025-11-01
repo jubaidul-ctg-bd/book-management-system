@@ -31,6 +31,25 @@ A comprehensive Book Management System API with full CRUD operations, search fun
 - **Testing**: Jest + Supertest + MongoDB Memory Server
 - **Validation**: class-validator & class-transformer
 
+## 🗄️ Database Choice: MongoDB
+
+**Why MongoDB was chosen for this project:**
+
+- **Document-Based Structure**: Books and authors are naturally document-oriented with varying metadata fields (genres, publication details, biographical information), making MongoDB's flexible schema ideal
+- **JSON-Native**: Seamless integration with JavaScript/TypeScript ecosystem - no object-relational mapping complexity
+- **Rapid Prototyping**: Schema flexibility allows for quick iterations and feature additions without migrations
+- **Mongoose ODM**: Provides excellent TypeScript support, validation, and NestJS integration out of the box
+- **Scalability**: Horizontal scaling capabilities for future growth
+- **Rich Querying**: Built-in text search, regex patterns, and aggregation pipelines perfect for book/author search functionality
+
+**Alternative Considerations:**
+
+- **PostgreSQL**: Would be preferred for complex relational queries, ACID transactions, and strict data consistency requirements
+- **SQLite**: Excellent for development/testing due to simplicity, but limited for production scalability
+- **MySQL**: Good middle-ground for traditional RDBMS needs with decent performance
+
+For this book management system, MongoDB's flexibility and JavaScript ecosystem integration make it the optimal choice.
+
 ## 🔧 Quick Start
 
 ```bash
