@@ -6,7 +6,7 @@ import { Author } from 'src/authors/schemas/author.schema';
 
 export type BookDocument = Book & Document;
 
-@Schema({ timestamps: true, versionKey: false })
+@Schema({ timestamps: true })
 export class Book {
   @Prop({ required: true })
   title: string;
@@ -35,4 +35,4 @@ schema.plugin(uniqueValidator, {
   message: '{PATH} already exists!',
 });
 schema.plugin(mongoosePaginate);
-export const PackSchema = schema;
+export const BookSchema = schema;

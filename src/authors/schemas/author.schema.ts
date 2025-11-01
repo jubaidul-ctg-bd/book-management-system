@@ -24,4 +24,4 @@ schema.plugin(uniqueValidator, {
   message: '{PATH} already exists!',
 });
 schema.plugin(mongoosePaginate);
-export const PackSchema = schema;
+export const AuthorSchema = schema;

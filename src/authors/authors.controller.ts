@@ -1,4 +1,16 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Param,
+  Patch,
+  Post,
+  Query,
+  ValidationPipe,
+} from '@nestjs/common';
 import { AuthorsService } from './authors.service';
 import { CreateAuthorDto } from './dto/create-author.dto';
 import { UpdateAuthorDto } from './dto/update-author.dto';
@@ -8,27 +20,52 @@ export class AuthorsController {
   constructor(private readonly authorsService: AuthorsService) {}
 
   @Post()
-  create(@Body() createAuthorDto: CreateAuthorDto) {
-    return this.authorsService.create(createAuthorDto);
+  async create(@Body(new ValidationPipe()) createAuthorDto: CreateAuthorDto) {
+    return {
+      message: 'Author created successfully',
+      result: await this.authorsService.create(createAuthorDto),
+    };
   }
 
   @Get()
-  findAll() {
-    return this.authorsService.findAll();
+  async findAll(
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
+    @Query('search') search?: string,
+  ) {
+    const pageNum = page ? parseInt(page, 10) : 1;
+    const limitNum = limit ? parseInt(limit, 10) : 10;
+    return {
+      message: 'Authors retrieved successfully',
+      result: await this.authorsService.findAll(pageNum, limitNum, search),
+    };
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.authorsService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return {
+      message: 'Author retrieved successfully',
+      result: await this.authorsService.findOne(id),
+    };
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAuthorDto: UpdateAuthorDto) {
-    return this.authorsService.update(+id, updateAuthorDto);
+  async update(
+    @Param('id') id: string,
+    @Body(new ValidationPipe()) updateAuthorDto: UpdateAuthorDto,
+  ) {
+    return {
+      message: 'Author updated successfully',
+      result: await this.authorsService.update(id, updateAuthorDto),
+    };
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.authorsService.remove(+id);
+  @HttpCode(HttpStatus.NO_CONTENT)
+  async remove(@Param('id') id: string) {
+    return {
+      message: 'Author deleted successfully',
+      result: await this.authorsService.remove(id),
+    };
   }
 }
