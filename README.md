@@ -1,8 +1,8 @@
 # 📚 Book Management System
 
-<p align="center">A Book Management System built with NestJS, MongoDB, and TypeScript</p>
+<p>A Book Management System built with NestJS, MongoDB, and TypeScript</p>
 
-<p align="center">
+<p>
   <img src="https://img.shields.io/badge/Node.js-v20+-green.svg" alt="Node.js Version" />
   <img src="https://img.shields.io/badge/NestJS-v11+-red.svg" alt="NestJS Version" />
   <img src="https://img.shields.io/badge/MongoDB-v8+-green.svg" alt="MongoDB Version" />
