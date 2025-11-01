@@ -1,9 +1,5 @@
 # 📚 Book Management System
 
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
-
 <p align="center">A Book Management System built with NestJS, MongoDB, and TypeScript</p>
 
 <p align="center">
@@ -24,7 +20,7 @@ A comprehensive Book Management System API with full CRUD operations, search fun
 - **Advanced Search & Pagination**: Efficient data retrieval
 - **Input Validation**: DTO-based validation with detailed error messages
 - **Error Handling**: Custom exception filters with consistent responses
-- **100% Test Coverage**: Unit and E2E tests with Jest & Supertest
+- **Test Coverage**: Unit and E2E tests with Jest & Supertest
 - **Type Safety**: Full TypeScript implementation
 - **Database Integrity**: Unique constraints and referential integrity
 
@@ -140,7 +136,3 @@ yarn start:prod
 ## ‍💻 Author
 
 **Jubaidul Alam** - [@jubaidul-ctg-bd](https://github.com/jubaidul-ctg-bd)
-
----
-
-<p align="center">Made with ❤️ using NestJS</p>
